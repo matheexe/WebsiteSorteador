@@ -2,6 +2,15 @@ html {
   cursor: none;
   scroll-behavior: smooth;
 }
+html input::-webkit-outer-spin-button,
+html input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+html input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
 body {
   font-family: "Cal Sans", sans-serif;
   background-color: #060608;
@@ -46,7 +55,22 @@ body .cursor-outline.link-hover {
   max-width: 960px;
   margin: 0 auto;
 }
-header h1 {
+header .nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+header .nav-bar ul {
+  list-style: none;
+}
+header .nav-bar ul li a {
+  cursor: none;
+  font-size: 1.8em;
+  color: #e5e5e7;
+  text-decoration: none;
+  transition: all ease 0.3s;
+}
+.headerNumber h1 {
   display: flex;
   justify-content: center;
   margin-top: 20vh;
@@ -55,42 +79,110 @@ header h1 {
   perspective: 1000px;
   transform-style: preserve-3d;
 }
-header h1 #spanR {
+.headerNumber h1 #spanR {
   margin-right: 5px;
 }
-header h1 span {
+.headerNumber h1 span {
   transform: rotateX(-25deg);
   transition: all 0.4s ease-in-out;
   text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
   filter: drop-shadow(0px 75px 10px #e5e5e7);
 }
-header h1 span:hover {
+.headerNumber h1 span:hover {
   color: #eb5923;
   filter: drop-shadow(0px 45px 20px #eb5923);
   transform: scaleX(1.1);
 }
-main .machineVisual {
-  position: relative;
-  width: 300px;
-  height: 300px;
+.headerNumber .headerForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
 }
-main .machineVisual .glassCircle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 300px;
-  width: 300px;
-  border-radius: 50%;
-  background-color: #737aba;
-  opacity: 35%;
+.headerNumber .headerForm .formText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
-main .machineVisual .glassCircleShine {
-  position: absolute;
-  top: 40px;
-  left: 190px;
-  height: 30px;
-  width: 30px;
+.headerNumber .headerForm .formText label {
+  margin-bottom: 10px;
+  font-weight: 400;
+  transition: all ease 0.3s;
+}
+.headerNumber .headerForm .formText input {
+  cursor: none;
+  font-family: "Cal Sans", sans-serif;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  border: none;
   border-radius: 50%;
+  margin-bottom: 20px;
+  outline: none;
+  background-color: #eb5923;
+  transition: all ease 0.3s;
+}
+.headerNumber .headerForm .formText input:hover {
+  transform: scale(1.1);
+}
+.headerNumber .headerForm button {
+  cursor: none;
+  font-family: "Cal Sans", sans-serif;
+  align-self: center;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 16px;
+  color: #060608;
   background-color: #e5e5e7;
-  opacity: 25%;
+  transition: all ease 0.3s;
+}
+.headerNumber .headerForm button:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0px 0px 8px #e5e5e7);
+}
+main {
+  display: block;
+  text-align: center;
+  align-content: center;
+}
+main h4 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+main .result-ball {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .result-ball span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  font-family: "Cal Sans", sans-serif;
+  color: #060608;
+  background-color: #737aba;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  outline: none;
+  transition: all ease 0.3s;
+}
+main .result-ball span:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 767px) {
+  .headerNumber h1 {
+    font-size: 4em;
+    margin-bottom: 100px;
+  }
 }

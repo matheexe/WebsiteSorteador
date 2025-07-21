@@ -1,13 +1,26 @@
 @import 'var.less';
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
 
 html{
     cursor: none;
     scroll-behavior: smooth;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
 }
 
 body{
     font-family: @primaryFont;
-    background-color: @primaryColor;
+    background-color: @backgroundColor;
     color: @textColor;
 
     .cursor-dot {
@@ -56,6 +69,29 @@ body{
 }
 
 header{
+    .nav-bar{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+
+        ul{
+            list-style: none;
+
+            li{
+
+                a{
+                    cursor: none;
+                    font-size: 1.8em;
+                    color: @textColor;
+                    text-decoration: none;
+                    transition: all ease 0.3s;
+                }
+            }
+        }
+    }
+}
+
+.headerNumber{
     h1{
         display: flex;
         justify-content: center;
@@ -81,5 +117,111 @@ header{
                 transform: scaleX(1.1);
             }
         }
+    }
+
+    .headerForm{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+
+        .formText{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            
+            label{
+                margin-bottom: 10px;
+                font-weight: 400;
+                transition: all ease 0.3s;
+            }
+
+            input{
+                cursor: none;
+                font-family: @primaryFont;
+                text-align: center;
+                width: 80px;
+                height: 80px;
+                border: none;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                outline: none;
+                background-color: @thirdColor;
+                transition: all ease 0.3s;
+
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        button{
+            cursor: none;
+            font-family: @primaryFont;
+            align-self: center;
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 16px;
+            color: @backgroundColor;
+            background-color: @textColor;
+            transition: all ease 0.3s;
+
+            &:hover{
+                transform: scale(1.1);
+                filter: drop-shadow(0px 0px 8px @textColor);
+            }
+        }
+    }
+}
+
+main{
+    display: block;
+    text-align: center;
+    align-content: center;
+
+    h4{
+        text-align: center;
+        font-weight: 400;
+        margin-bottom: 10px;
+        margin-top: 40px;
+    }
+
+    .result-ball {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            display: flex;                
+            align-items: center;          
+            justify-content: center;      
+            cursor: none;
+            font-family: @primaryFont;
+            color: @backgroundColor;
+            background-color: @accentColor;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            border: none;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all ease 0.3s;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+@media @breakpointMobile{
+    .headerNumber h1 {
+        font-size: 4em;
+        margin-bottom: 100px;
     }
 }
